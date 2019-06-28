@@ -6,13 +6,13 @@ import Profile from './Profile'
 
 function App() {
 
-  const [stage, setState] = useState('Profile')
+  const [stage, setStage] = useState('Profile')
 
   return (
     <div className="App">
       <div className="nav">
-        <div onClick={() => { setState('AllTask') }}>All Task</div>
-        <div onClick={() => { setState('Profile') }}>Profile</div>
+        <div onClick={() => { setStage('AllTask') }}>All Task</div>
+        <div onClick={() => { setStage('Profile') }}>Profile</div>
       </div>
       <div className="container">
         { stage === 'AllTask' && <AllTask /> }
