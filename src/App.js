@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import AllTask from './AllTask'
+import Profile from './Profile'
 
 function App() {
+
+  const [stage, setState] = useState('Profile')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="nav">
+        <div onClick={() => { setState('AllTask') }}>All Task</div>
+        <div onClick={() => { setState('Profile') }}>Profile</div>
+      </div>
+      <div className="container">
+        { stage === 'AllTask' && <AllTask /> }
+        { stage === 'Profile' && <Profile /> }
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
